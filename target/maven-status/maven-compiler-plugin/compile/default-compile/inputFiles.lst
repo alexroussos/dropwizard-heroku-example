@@ -1,0 +1,16 @@
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/HelloWorldApplication.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/core/Template.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/resources/ViewResource.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/cli/RenderCommand.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/core/Person.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/auth/ExampleAuthenticator.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/core/Saying.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/resources/HelloWorldResource.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/core/User.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/views/PersonView.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/health/TemplateHealthCheck.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/resources/PeopleResource.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/resources/ProtectedResource.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/HelloWorldConfiguration.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/db/PersonDAO.java
+/Users/alexroussos/workspace/saponify/src/main/java/com/example/helloworld/resources/PersonResource.java
