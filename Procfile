@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar --port $PORT target/dropwizard-example-0.7.0-sources.jar
+web: java $JAVA_OPTS -Ddw.server.applicationConnectors[0].port=$PORT -Ddw.server.adminConnectors[0].port=5001 -jar target/dropwizard-example-0.7.0.jar server example.yml
