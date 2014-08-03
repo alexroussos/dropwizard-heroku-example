@@ -6,7 +6,7 @@ defaultName: Stranger
 database:
 
   # the name of your JDBC driver
-  driverClass: org.h2.Driver
+  driverClass: org.postgresql.Driver
 
   # the username
   user: xxx-user
