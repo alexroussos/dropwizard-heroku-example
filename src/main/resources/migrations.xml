@@ -6,35 +6,11 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="1" author="codahale">
+    <changeSet id="5" author="alexr">
+        <comment>make people table start lowercase</comment>
+        <createSequence sequenceName="person_id_seq"/>
         <createTable tableName="people">
-            <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="fullName" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="jobTitle" type="varchar(255)"/>
-        </createTable>
-    </changeSet>
-
-    <changeSet id="2" author="alexr">
-        <createTable tableName="People">
-            <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="fullname" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="jobtitle" type="varchar(255)"/>
-        </createTable>
-    </changeSet>
-
-    <changeSet id="3" author="alexr">
-        <comment>Try making ID a SERIAL but seems to be getting null inserted rather than generated value</comment>
-        <dropTable tableName="People" />
-        <createTable tableName="People">
-            <column name="id" type="SERIAL" autoIncrement="true" startWith="100">
+            <column name="id" type="bigint" valueSequenceNext="person_id_seq">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="fullname" type="varchar(255)">
