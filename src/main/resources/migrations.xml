@@ -29,4 +29,18 @@
             <column name="jobtitle" type="varchar(255)"/>
         </createTable>
     </changeSet>
+
+    <changeSet id="3" author="alexr">
+        <comment>Try making ID a SERIAL but seems to be getting null inserted rather than generated value</comment>
+        <dropTable tableName="People" />
+        <createTable tableName="People">
+            <column name="id" type="SERIAL" autoIncrement="true" startWith="100">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="fullname" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="jobtitle" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
