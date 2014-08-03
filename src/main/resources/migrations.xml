@@ -19,7 +19,6 @@
     </changeSet>
 
     <changeSet id="2" author="alexr">
-        <dropTable tableName="People"/>
         <createTable tableName="People">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
