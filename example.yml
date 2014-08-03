@@ -9,13 +9,13 @@ database:
   driverClass: org.h2.Driver
 
   # the username
-  user: sa
+  user: xxx-user
 
   # the password
-  password: sa
+  password: xxx-pw
 
   # the JDBC URL
-  url: jdbc:h2:./target/example
+  url: xxx-url
 
 # use the simple server factory if you only want to run on a single port
 #server:

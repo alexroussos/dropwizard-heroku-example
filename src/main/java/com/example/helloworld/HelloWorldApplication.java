@@ -16,8 +16,12 @@ import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(HelloWorldConfiguration.class);
+
     public static void main(String[] args) throws Exception {
         new HelloWorldApplication().run(args);
     }
@@ -37,6 +41,7 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
 
     @Override
     public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
+        LOGGER.info("xxx init config");
         bootstrap.addCommand(new RenderCommand());
         bootstrap.addBundle(new AssetsBundle());
         bootstrap.addBundle(new MigrationsBundle<HelloWorldConfiguration>() {
@@ -52,6 +57,7 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
     @Override
     public void run(HelloWorldConfiguration configuration,
                     Environment environment) throws ClassNotFoundException {
+        LOGGER.info("xxx run app");
         final PersonDAO dao = new PersonDAO(hibernateBundle.getSessionFactory());
         final Template template = configuration.buildTemplate();
 
