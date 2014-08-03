@@ -4,7 +4,6 @@ import com.example.helloworld.core.Template;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
-import io.dropwizard.db.DatabaseConfiguration;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
@@ -45,19 +44,12 @@ public class HelloWorldConfiguration extends Configuration {
         return new Template(template, defaultName);
     }
 
-
-    @Valid
-    @NotNull
-    private DatabaseConfiguration databaseConfiguration = ExampleDatabaseConfiguration.create(System.getenv("DATABASE_URL"));
-
-    public DatabaseConfiguration getDatabaseConfiguration() {
-        return databaseConfiguration;
-    }
-
+    @JsonProperty("database")
     public DataSourceFactory getDataSourceFactory() {
-        return databaseConfiguration.getDataSourceFactory(null);
+        return database;
     }
 
+    @JsonProperty("database")
     public void setDataSourceFactory(DataSourceFactory dataSourceFactory) {
         this.database = dataSourceFactory;
     }
