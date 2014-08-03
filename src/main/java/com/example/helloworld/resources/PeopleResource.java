@@ -4,14 +4,12 @@ import com.example.helloworld.core.Person;
 import com.example.helloworld.db.PersonDAO;
 import io.dropwizard.hibernate.UnitOfWork;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/people")
+@Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class PeopleResource {
 
@@ -21,6 +19,7 @@ public class PeopleResource {
         this.peopleDAO = peopleDAO;
     }
 
+    @Consumes()
     @POST
     @UnitOfWork
     public Person createPerson(Person person) {
