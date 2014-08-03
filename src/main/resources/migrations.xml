@@ -7,14 +7,14 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="1" author="codahale">
-        <createTable tableName="people">
+        <createTable tableName="People">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="fullName" type="varchar(255)">
+            <column name="fullname" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="jobTitle" type="varchar(255)"/>
+            <column name="jobtitle" type="varchar(255)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

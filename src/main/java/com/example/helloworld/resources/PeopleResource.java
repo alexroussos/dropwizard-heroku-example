@@ -19,7 +19,6 @@ public class PeopleResource {
         this.peopleDAO = peopleDAO;
     }
 
-    @Consumes()
     @POST
     @UnitOfWork
     public Person createPerson(Person person) {
