@@ -14,44 +14,64 @@ A few changes were necessary to make the app deployable to Heroku
 * Get configuration from the Heroku environment rather than Dropwizard's example.yml
 * Minor database schema changes
 
-# Running The Application
+# Running the App Locally
+You can now run the example with the following commands.
+
+* Build the example
+
+        mvn package
+
+* Start the example using foreman (get from installing the [Heroku toolbelt][2]. This will start your project using the command in the Procfile.
+
+        foreman start
+	
+* Hit the example in your browser
+
+	`http://localhost:5000/hello-world`
+	
+* Post data into the application
+
+        `curl -H "Content-Type: application/json" -X POST -d '{"fullName":"Other Person","jobTitle":"Other Title"}' http://localhost:8080/people`
+	 
+* See the data you posted
+
+	`http://localhost:8080/people`
+
+# Deploying to Heroku
 
 First, install the [Heroku toolbelt][2]. This will give you what you need to get started.
 - Foreman for running your app
 - Git
 - Heroku client
 
+Create a Heroku account if you haven't already. Then navigate to the project directiory you cloned from github.
 
-heroku create
-git push heroku master
+Login to Heroku
 
-You'll then need to follow t [Heroku setup][3]
+        heroku login
 
-You can now run the example with the following commands.
+Now create a project in Heroku
 
-* Build the example
-        mvn package
-        
-* Start the example using foreman
-	foreman start
-
-* To setup the h2 database run.
-
-        java -jar target/dropwizard-example-0.8.0-SNAPSHOT.jar db migrate example.yml
-
-* To run the server run.
-
-        java -jar target/dropwizard-example-0.8.0-SNAPSHOT.jar server example.yml
-
-* To hit the Hello World example (hit refresh a few times):
-
-	http://localhost:5000/hello-world
-
-* To post data into the application:
-
-	curl -H "Content-Type: application/json" -X POST -d '{"fullName":"Other Person","jobTitle":"Other Title"}' http://localhost:8080/people
+        heroku create <project name>
 	
-	open http://localhost:8080/people
+Create a database in Heroku. You don't need to provide any config in your project; it comes from the $DATABASE_URL in Heroku.
+        
+        `heroku addons:add heroku-postgresql:dev`
+	
+Creating the project in Heroku added a git remote, which you can now push to.
+
+        git push heroku master
+
+Pushing to git will also deploy your project. You can now open it.
+
+        heroku  open
+	
+If that fails, see the logs
+
+        heroku logs
+
+If you need more information, see the [Heroku setup][3].
+
 	
 [1]: https://github.com/dropwizard/dropwizard/tree/master/dropwizard-example
 [2]: https://toolbelt.heroku.com/
