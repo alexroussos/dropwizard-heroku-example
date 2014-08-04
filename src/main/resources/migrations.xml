@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="5" author="alexr">
+    <changeSet id="7" author="alexr">
         <comment>make people table and column names start lowercase</comment>
         <createSequence sequenceName="person_id_seq"/>
         <createTable tableName="people">
