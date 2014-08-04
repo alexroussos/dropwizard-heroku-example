@@ -11,7 +11,12 @@ import org.slf4j.LoggerFactory;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-// TODO Make this not so ugly
+/**
+ * This class is basically a hack to use the Heroku DATABASE_URL instead of the database configuration in the
+ * Dropwizard example.yml.
+ *
+ * TODO Make this not so ugly
+ */
 public class ExampleDatabaseConfiguration implements DatabaseConfiguration {
     final static Logger LOGGER = LoggerFactory.getLogger(ExampleDatabaseConfiguration.class);
     private static DatabaseConfiguration databaseConfiguration;

@@ -3,52 +3,49 @@ template: Hello, %s!
 defaultName: Stranger
 
 # Database settings.
+# HEROKU NOTE - none of these are used since the values come from the Heroku $DATABASE_URL
 database:
-
-  # the name of your JDBC driver
   driverClass: org.postgresql.Driver
-
-  # the username
-  user: xxx-user
-
-  # the password
-  password: xxx-pw
-
-  # the JDBC URL
-  url: xxx-url
+  user: unused-user
+  password: unused-pw
+  url: unused-url
 
 # use the simple server factory if you only want to run on a single port
-#server:
-#  type: simple
-#  connector:
-#    type: http
-#    port: 8080
-
+# HEROKU NOTE - the port gets be overridden with the Heroku $PORT in the Procfile
 server:
+  type: simple
+  applicationContextPath: /
+  #adminContextPath: /admin # If you plan to use an admin path, you'll need to also use non-root app path
+  connector:
+    type: http
+    port: 8080
+
+# HEROKU NOTE - Heroku only opens a single port so can't use the usual Dropwizard app-and-admin configuration
+#server:
 #  softNofileLimit: 1000
 #  hardNofileLimit: 1000
-  applicationConnectors:
-    - type: http
-      port: 8080
-    - type: https
-      port: 8443
-      keyStorePath: example.keystore
-      keyStorePassword: example
-      validateCerts: false
+#  applicationConnectors:
+#    - type: http
+#      port: 8080
+#    - type: https
+#      port: 8443
+#      keyStorePath: example.keystore
+#      keyStorePassword: example
+#      validateCerts: false
 # this requires the npn-boot library on the JVM's boot classpath
 #    - type: spdy3
 #      port: 8445
 #      keyStorePath: example.keystore
 #      keyStorePassword: example
 #      validateCerts: false
-  adminConnectors:
-    - type: http
-      port: 8081
-    - type: https
-      port: 8444
-      keyStorePath: example.keystore
-      keyStorePassword: example
-      validateCerts: false
+#  adminConnectors:
+#    - type: http
+#      port: 8081
+#    - type: https
+#      port: 8444
+#      keyStorePath: example.keystore
+#      keyStorePassword: example
+#      validateCerts: false
 
 # Logging settings.
 logging:

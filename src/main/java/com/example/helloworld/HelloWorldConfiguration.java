@@ -50,19 +50,21 @@ public class HelloWorldConfiguration extends Configuration {
         return new Template(template, defaultName);
     }
 
+    /**
+     * This gets called with the values from the Dropwizard example.xmp, but we want to override it with the values
+     * from the Heroku DATABASE_URL environment variable.
+     */
     @JsonProperty("database")
     public DataSourceFactory getDataSourceFactory() {
-        LOGGER.info("XXX getting db factory");
-        LOGGER.info("OLD DB=" + database.getUrl());
+        LOGGER.info("Dropwizard dummy DB URL (will be overridden)=" + database.getUrl());
         DatabaseConfiguration databaseConfiguration = ExampleDatabaseConfiguration.create(System.getenv("DATABASE_URL"));
         database = databaseConfiguration.getDataSourceFactory(null);
-        LOGGER.info("NEW DB=" + database.getUrl());
+        LOGGER.info("Heroku DB URL=" + database.getUrl());
         return database;
     }
 
     @JsonProperty("database")
     public void setDataSourceFactory(DataSourceFactory dataSourceFactory) {
-        LOGGER.info("XXX setting db factory");
         this.database = dataSourceFactory;
     }
 }

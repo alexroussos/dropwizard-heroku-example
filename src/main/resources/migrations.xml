@@ -7,10 +7,10 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="5" author="alexr">
-        <comment>make people table start lowercase</comment>
+        <comment>make people table and column names start lowercase</comment>
         <createSequence sequenceName="person_id_seq"/>
         <createTable tableName="people">
-            <column name="id" type="bigint" valueSequenceNext="person_id_seq">
+            <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="fullname" type="varchar(255)">
