@@ -10,9 +10,13 @@ This app shows how to create a full-stack Dropwizard app using Freemarker and Mu
 
 A few changes were necessary to make the app deployable to Heroku
 * Add a Procfile
+  * This tells Heroku (Foreman, specifically) how to start your app. Here, that means running database migrations and then starting our app with the Heroku JVM args.
 * Use 'simple' (single-port) server
+  * Dropwizard typically uses two ports: one for the application and one for admin; Heroku only supports exposing a single port.
 * Get configuration from the Heroku environment rather than Dropwizard's example.yml
+  * Heroku supplies the DB config via the DATABASE_URL environment variable, which provides a secure way for us to get the DB connection settings.
 * Minor database schema changes
+  * Fix a couple problems (maybe due to using postgres) with ID generation and camel-case column names.
 
 # Running the App Locally
 You can now run the example with the following commands.
@@ -31,7 +35,7 @@ You can now run the example with the following commands.
 	
 * Post data into the application
 
-        `curl -H "Content-Type: application/json" -X POST -d '{"fullName":"Other Person","jobTitle":"Other Title"}' http://localhost:8080/people`
+        curl -H "Content-Type: application/json" -X POST -d '{"fullName":"Other Person","jobTitle":"Other Title"}' http://localhost:8080/people
 	 
 * See the data you posted
 
@@ -56,7 +60,7 @@ Now create a project in Heroku
 	
 Create a database in Heroku. You don't need to provide any config in your project; it comes from the $DATABASE_URL in Heroku.
         
-        `heroku addons:add heroku-postgresql:dev`
+        heroku addons:add heroku-postgresql:dev
 	
 Creating the project in Heroku added a git remote, which you can now push to.
 
