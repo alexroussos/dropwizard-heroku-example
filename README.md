@@ -1,28 +1,12 @@
 # Introduction
 
-The drop wizard example application was developed to, as its name implies, provide examples of some of the features
-present in drop wizard.
+This example shows how to take the basic Dropwizard example (https://github.com/dropwizard/dropwizard/tree/master/dropwizard-example) and make it deployable to Heroku.
 
 # Overview
 
-Included with this application is an example of the optional db API module. The examples provided illustrate a few of
-the features available in [JDBI](http://jdbi.org), along with demonstrating how these are used from within dropwizard.
+This app shows how to create a full-stack Dropwizard app using Freemarker and Mustache for views, the usual Jetty/Jersey/Jackson, and a Postgres SQL backend. This documentation focuses on what was done to Heroku-ize the example, rather than the example itself, which is already documented.
 
-This database example is comprised of the following classes.
-
-* The `PersonDAO` illustrates using the [SQL Object Queries](http://jdbi.org/sql_object_api_queries/) and string template
-features in JDBI.
-
-* The `PeopleDAO.sql.stg` stores all the SQL statements for use in the `PersonDAO`, note this is located in the
-src/resources under the same path as the `PersonDAO` class file.
-
-* `migrations.xml` illustrates the usage of `dropwizard-migrations` which can create your database prior to running
-your application for the first time.
-
-* The `PersonResource` and `PeopleResource` are the REST resource which use the PersonDAO to retrieve data from the database, note the injection
-of the PersonDAO in their constructors.
-
-As with all the modules the db example is wired up in the `initialize` function of the `HelloWorldApplication`.
+# Modifications for Heroku
 
 # Running The Application
 
