@@ -50,6 +50,10 @@ First, install the [Heroku toolbelt][2]. This will give you what you need to get
 
 Create a Heroku account if you haven't already. Then navigate to the project directiory you cloned from github.
 
+Clone the project and cd into it
+
+        git clone https://github.com/alexroussos/dropwizard-heroku-example.git
+
 Login to Heroku
 
         heroku login
