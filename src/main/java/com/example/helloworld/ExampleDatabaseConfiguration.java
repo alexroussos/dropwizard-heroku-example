@@ -32,7 +32,8 @@ public class ExampleDatabaseConfiguration implements DatabaseConfiguration {
             URI dbUri = new URI(databaseUrl);
             final String user = dbUri.getUserInfo().split(":")[0];
             final String password = dbUri.getUserInfo().split(":")[1];
-            final String url = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+			final String url = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath()
+					+ "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
             databaseConfiguration = new DatabaseConfiguration() {
                 DataSourceFactory dataSourceFactory;
                 @Override
